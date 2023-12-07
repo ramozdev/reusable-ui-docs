@@ -1,0 +1,146 @@
+---
+title: "Tooltip"
+description: A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { RadixDocs } from "@/components/radix-docs";
+
+# Tooltip
+
+A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
+
+<RadixDocs slug="tooltip" />
+
+![Tooltip Preview](/pro/demos/radix/tooltip.png)
+
+## Installation
+
+### Dependencies
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-tooltip
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-tooltip
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-tooltip
+    ```
+
+  </Tab>
+</Tabs>
+
+### Icons
+
+The example uses Radix Icons, but you can use any icon library you want.
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-icons
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-icons
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-icons
+    ```
+
+  </Tab>
+</Tabs>
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="radix" defaultOpen>
+      <FileTree.Folder name="tooltip" defaultOpen>
+        <FileTree.File name="arrow.ts" />
+        <FileTree.File name="content.ts" />
+        <FileTree.File name="variants.ts" />
+      </FileTree.Folder>
+      <FileTree.File name="tooltip.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Animations
+
+Animatios for this component are included in the `/ui/animations-plugins.ts` file.
+
+## Import Tooltip
+
+```tsx copy
+import * as Tooltip from "@/ui/radix/tooltip";
+```
+
+## Demo
+
+```tsx copy filename="@/demos/radix/tooltip.tsx"
+import * as Button from "@/ui/html/button";
+import * as Tooltip from "@/ui/radix/tooltip";
+import { PlusIcon } from "@radix-ui/react-icons";
+
+export function TooltipDemo() {
+  return (
+    <Tooltip.Provider>
+      <Tooltip.Root>
+        <Tooltip.Trigger asChild>
+          <Button.Solid className="rounded-full">
+            <PlusIcon />
+          </Button.Solid>
+        </Tooltip.Trigger>
+        <Tooltip.Portal>
+          <Tooltip.Content>
+            Add to library
+            <Tooltip.Arrow />
+          </Tooltip.Content>
+        </Tooltip.Portal>
+      </Tooltip.Root>
+    </Tooltip.Provider>
+  );
+}
+```
+
+## Usage
+
+Reusable UI extends the API of Radix UI to provide a more convenient API. This seciton contains the additions made to the API.
+
+### Arrow
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The arrow's color.                                                                                                                                                                                                                                                               |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Content
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The content's color                                                                                                                                                                                                                                                              |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |

@@ -1,0 +1,109 @@
+---
+title: "Label"
+description: Renders an accessible label associated with controls.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { RadixDocs } from "@/components/radix-docs";
+
+# Label
+
+Renders an accessible label associated with controls.
+
+<RadixDocs slug="label" />
+
+![Label Preview](/pro/demos/radix/label.png)
+
+## Installation
+
+### Dependencies
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-label
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-label
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-label
+    ```
+
+  </Tab>
+</Tabs>
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="radix" defaultOpen>
+      <FileTree.Folder name="label" defaultOpen>
+        <FileTree.File name="root.ts" />
+        <FileTree.File name="variants.ts" />
+      </FileTree.Folder>
+      <FileTree.File name="label.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Import Label
+
+```tsx copy
+import * as Label from "@/ui/radix/label";
+```
+
+## Demo
+
+```tsx copy filename="@/demos/radix/label.tsx"
+import * as Button from "@/ui/html/button";
+import { Fieldset } from "@/ui/html/fieldset";
+
+import { Input } from "@/ui/html/input";
+import * as Label from "@/ui/radix/label";
+import { Legend } from "@/ui/html/legend";
+import { Textarea } from "@/ui/html/textarea";
+
+export function LabelDemo() {
+  return (
+    <form className="mx-auto w-[400px]" onSubmit={(e) => e.preventDefault()}>
+      <Fieldset outline>
+        <Legend>User Registration</Legend>
+        <Label.Root required htmlFor="name">
+          First name
+        </Label.Root>
+        <Input required id="name" />
+        <Label.Root htmlFor="middle-name">Middle name</Label.Root>
+        <Input id="middle-name" />
+        <Label.Root required htmlFor="bio">
+          Bio
+        </Label.Root>
+        <Textarea required id="bio"></Textarea>
+      </Fieldset>
+      <Button.Solid className="mt-4 w-full">Submit</Button.Solid>
+    </form>
+  );
+}
+```
+
+## Usage
+
+Reusable UI extends the API of Radix UI to provide a more convenient API. This seciton contains the additions made to the API.
+
+### Root
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The root's color.                                                                                                                                                                                                                                                                |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |

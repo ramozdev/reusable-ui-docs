@@ -1,0 +1,138 @@
+---
+title: "Scroll Area"
+description: Augments native scroll functionality for custom, cross-browser styling.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { RadixDocs } from "@/components/radix-docs";
+
+# Scroll Area
+
+Augments native scroll functionality for custom, cross-browser styling.
+
+<RadixDocs slug="scroll-area" />
+
+![Scroll Area Preview](/pro/demos/radix/scroll-area.png)
+
+## Installation
+
+### Dependencies
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-scroll-area
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-scroll-area
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-scroll-area
+    ```
+
+  </Tab>
+</Tabs>
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="radix" defaultOpen>
+      <FileTree.Folder name="scroll-area" defaultOpen>
+        <FileTree.File name="corner.ts" />
+        <FileTree.File name="root.ts" />
+        <FileTree.File name="scrollbar.ts" />
+        <FileTree.File name="thumb.ts" />
+        <FileTree.File name="variants.ts" />
+      </FileTree.Folder>
+      <FileTree.File name="scroll-area.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Import Scroll Area
+
+```tsx copy
+import * as ScrollArea from "@/ui/radix/scroll-area";
+```
+
+## Demo
+
+```tsx copy filename="@/demos/radix/scroll-area.tsx"
+import * as ScrollArea from "@/ui/radix/scroll-area";
+
+const tags = Array.from({ length: 50 }).map(
+  (_, i, a) => `v1.2.0-beta.${a.length - i}`
+);
+
+export function ScrollAreaDemo() {
+  return (
+    <ScrollArea.Root>
+      <ScrollArea.Viewport>
+        <div className="text-sm font-medium">Tags</div>
+        {tags.map((tag) => (
+          <div className="mt-3 pt-3 text-sm" key={tag}>
+            {tag}
+          </div>
+        ))}
+      </ScrollArea.Viewport>
+      <ScrollArea.Scrollbar orientation="vertical">
+        <ScrollArea.Thumb />
+      </ScrollArea.Scrollbar>
+      <ScrollArea.Scrollbar orientation="horizontal">
+        <ScrollArea.Thumb />
+      </ScrollArea.Scrollbar>
+      <ScrollArea.Corner />
+    </ScrollArea.Root>
+  );
+}
+```
+
+## Usage
+
+Reusable UI extends the API of Radix UI to provide a more convenient API. This seciton contains the additions made to the API.
+
+### Corner
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The corner's color.                                                                                                                                                                                                                                                              |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'white-black'{:ts}`                                                                                                                                                                                                                                                             |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Root
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The root's color.                                                                                                                                                                                                                                                                |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'white-black'{:ts}`                                                                                                                                                                                                                                                             |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Scrollbar
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The scrollbar's color.                                                                                                                                                                                                                                                           |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'white-black'{:ts}`                                                                                                                                                                                                                                                             |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Thumb
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The thumb's color.                                                                                                                                                                                                                                                               |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |

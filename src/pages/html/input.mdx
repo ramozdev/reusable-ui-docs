@@ -1,0 +1,119 @@
+---
+title: "Input"
+description: Create interactive controls for forms to accept data from the user.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { MdnDocs } from "@/components/mdn-docs";
+
+# Input
+
+Create interactive controls for forms to accept data from the user.
+
+<MdnDocs slug="input" />
+
+## outline (default)
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import { Input } from "@/ui/html/input";
+import { colors } from "@/lib/colors";
+
+export function Outline() {
+  return (
+    <div className="grid gap-4 lg:grid-cols-2">
+      {colors.map((color, index) => (
+        <div key={`email-outline-${color}-${index}`}>
+          <label
+            className="sr-only"
+            htmlFor={`email-outline-${color}-${index}`}
+          >
+            Email
+          </label>
+          <Input
+            color={color}
+            type="email"
+            placeholder={`email (${color})`}
+            name={`email-outline-${color}-${index}`}
+            id={`email-outline-${color}-${index}`}
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## plane
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import { Input } from "@/ui/html/input";
+import { colors } from "@/lib/colors";
+
+export function Plane() {
+  return (
+    <div className="grid gap-4 lg:grid-cols-2">
+      {colors.map((color, index) => (
+        <div key={`email-plane-${color}-${index}`}>
+          <label className="sr-only" htmlFor={`email-plane-${color}-${index}`}>
+            Email
+          </label>
+          <Input
+            color={color}
+            type="email"
+            placeholder={`email (${color})`}
+            variant="plane"
+            name={`email-plane-${color}-${index}`}
+            id={`email-plane-${color}-${index}`}
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## Installation
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="html" defaultOpen>
+      <FileTree.File name="input.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Usage
+
+### Input
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The input's color.                                                                                                                                                                                                                                                               |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+| Prop        | `variant`                   |
+| ----------- | --------------------------- |
+| Description | The input's style.          |
+| type        | `'outline' \| 'plane'{:ts}` |
+| default     | `'outline'{:ts}`            |
+| required    | `false{:ts}`                |

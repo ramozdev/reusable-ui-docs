@@ -1,0 +1,146 @@
+---
+title: "Alert Dialog"
+description: A modal dialog that interrupts the user with important content and expects a response.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { RadixDocs } from "@/components/radix-docs";
+
+# Alert Dialog
+
+A modal dialog that interrupts the user with important content and expects a response.
+
+<RadixDocs slug="alert-dialog" />
+
+![Alert Dialog Preview](/pro/demos/radix/alert-dialog.png)
+
+## Installation
+
+### Dependencies
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-alert-dialog
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-alert-dialog
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-alert-dialog
+    ```
+
+  </Tab>
+</Tabs>
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="radix" defaultOpen>
+      <FileTree.Folder name="alert-dialog" defaultOpen>
+        <FileTree.File name="content.ts" />
+        <FileTree.File name="description.ts" />
+        <FileTree.File name="overlay.ts" />
+        <FileTree.File name="title.ts" />
+        <FileTree.File name="variants.ts" />
+      </FileTree.Folder>
+      <FileTree.File name="alert-dialog.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Animations
+
+Animatios for this component are included in the `/ui/animations-plugins.ts` file.
+
+## Import Alert Dialog
+
+```tsx copy
+import * as AlertDialog from "@/ui/radix/alert-dialog";
+```
+
+## Demo
+
+```tsx copy filename="@/demos/radix/alert-dialog.tsx"
+import * as AlertDialog from "@/ui/radix/alert-dialog";
+import * as Button from "@/ui/html/button";
+
+export function AlertDialogDemo() {
+  return (
+    <AlertDialog.Root>
+      <AlertDialog.Trigger asChild>
+        <Button.Solid color="red">Delete account</Button.Solid>
+      </AlertDialog.Trigger>
+      <AlertDialog.Content>
+        <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
+        <AlertDialog.Description>
+          This action cannot be undone. This will permanently delete your
+          account and remove your data from our servers.
+        </AlertDialog.Description>
+        <div className="flex justify-end gap-[25px]">
+          <AlertDialog.Cancel asChild>
+            <Button.Subtle variant="outline" color="neutral">
+              Cancel
+            </Button.Subtle>
+          </AlertDialog.Cancel>
+          <AlertDialog.Action asChild>
+            <Button.Subtle variant="outline" color="red">
+              Yes, delete account
+            </Button.Subtle>
+          </AlertDialog.Action>
+        </div>
+      </AlertDialog.Content>
+    </AlertDialog.Root>
+  );
+}
+```
+
+## Usage
+
+Reusable UI extends the API of Radix UI to provide a more convenient API. This seciton contains the additions made to the API.
+
+### Content
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The content's color.                                                                                                                                                                                                                                                             |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'white-black'{:ts}`                                                                                                                                                                                                                                                             |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Description
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The description's color.                                                                                                                                                                                                                                                         |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Overlay
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The overlay's color.                                                                                                                                                                                                                                                             |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Title
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The title's color.                                                                                                                                                                                                                                                               |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |

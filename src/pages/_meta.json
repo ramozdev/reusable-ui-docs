@@ -1,0 +1,59 @@
+{
+  "html": "HTML",
+  "radix": "Radix UI",
+  "nextjs": "Next.js",
+  "cmdk": "Command K (cmdk)",
+  "company": {
+    "title": "Install",
+    "type": "menu",
+    "items": {
+      "start-from-scratch": {
+        "title": "Start from scratch"
+      },
+      "add-to-project": {
+        "title": "Add to project"
+      }
+    }
+  },
+  "free": {
+    "title": "Free",
+    "type": "page"
+  },
+  "pro": {
+    "title": "Pro",
+    "type": "page"
+  },
+  "faq": {
+    "title": "FAQ",
+    "type": "page",
+    "display": "hidden"
+  },
+  "start-from-scratch": {
+    "title": "Start from scratch",
+    "theme": {
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": false,
+      "toc": true,
+      "pagination": false
+    },
+    "display": "hidden"
+  },
+  "add-to-project": {
+    "title": "Add to project",
+    "theme": {
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": false,
+      "toc": true,
+      "pagination": false
+    },
+    "display": "hidden"
+  },
+  "twitter": {
+    "title": "Twitter",
+    "type": "page",
+    "href": "https://twitter.com/ramozdev",
+    "newWindow": true
+  }
+}

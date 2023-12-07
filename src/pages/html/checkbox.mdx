@@ -1,0 +1,149 @@
+---
+title: "Checkbox"
+description: Select single values for submission in a form.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { MdnDocs } from "@/components/mdn-docs";
+
+# Checkbox
+
+> Select single values for submission in a form.
+
+<MdnDocs slug="input/checkbox" />
+
+## outline (default)
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import { Checkbox } from "@/ui/html/checkbox";
+import { colors } from "@/lib/colors";
+
+export function Outline() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color, index) => (
+        <div className="flex gap-2" key={`checkbox-outline-${color}-${index}`}>
+          <Checkbox
+            color={color}
+            name={`checkbox-outline-${color}-${index}`}
+            id={`checkbox-outline-${color}-${index}`}
+          />
+          <label htmlFor={`checkbox-outline-${color}-${index}`}>{color}</label>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## plane
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+
+```tsx copy
+import { Checkbox } from "@/ui/html/checkbox";
+import { colors } from "@/lib/colors";
+
+export function Plane() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color, index) => (
+        <div className="flex gap-2" key={`plane-outline-${color}-${index}`}>
+          <Checkbox
+            color={color}
+            variant="plane"
+            name={`plane-outline-${color}-${index}`}
+            id={`plane-outline-${color}-${index}`}
+          />
+          <label htmlFor={`plane-outline-${color}-${index}`}>{color}</label>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## Installation
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="html" defaultOpen>
+      <FileTree.File name="checkbox.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+### TailwindCSS Forms Plugin
+
+You must install the [@tailwindcss/forms](https://github.com/tailwindlabs/tailwindcss-forms) to use this component.
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install -D @tailwindcss/forms
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install -D @tailwindcss/forms
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add -D @tailwindcss/forms
+    ```
+
+  </Tab>
+</Tabs>
+
+Then add the plugin to your `tailwind.config.ts` file:
+
+```ts copy filename="tailwind.config.ts" {5}
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  // ...
+  plugins: [require("@tailwindcss/forms")],
+};
+
+module.exports = config;
+```
+
+## Usage
+
+### Checkbox
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The checkbox's color.                                                                                                                                                                                                                                                            |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'blue'{:ts}`                                                                                                                                                                                                                                                                    |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+| Prop        | `variant`                   |
+| ----------- | --------------------------- |
+| Description | The checkbox's style.       |
+| type        | `'outline' \| 'plane'{:ts}` |
+| default     | `'outline'{:ts}`            |
+| required    | `false{:ts}`                |

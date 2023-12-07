@@ -1,0 +1,188 @@
+---
+title: "Dialog"
+description: A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { RadixDocs } from "@/components/radix-docs";
+
+# Dialog
+
+A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+
+<RadixDocs slug="dialog" />
+
+![Dialog Preview](/pro/demos/radix/dialog.png)
+
+## Installation
+
+### Dependencies
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-dialog
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-dialog
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-dialog
+    ```
+
+  </Tab>
+</Tabs>
+
+### Icons
+
+The example uses Radix Icons, but you can use any icon library you want.
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-icons
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-icons
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-icons
+    ```
+
+  </Tab>
+</Tabs>
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="radix" defaultOpen>
+      <FileTree.Folder name="dialog" defaultOpen>
+        <FileTree.File name="content.ts" />
+        <FileTree.File name="description.ts" />
+        <FileTree.File name="overlay.ts" />
+        <FileTree.File name="title.ts" />
+        <FileTree.File name="variants.ts" />
+      </FileTree.Folder>
+      <FileTree.File name="dialog.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Animations
+
+Animatios for this component are included in the `/ui/animations-plugins.ts` file.
+
+## Import Dialog
+
+```tsx copy
+import * as Dialog from "@/ui/radix/dialog";
+```
+
+## Demo
+
+```tsx copy filename="@/demos/radix/dialog.tsx"
+import * as Dialog from "@/ui/radix/dialog";
+import { Cross2Icon } from "@radix-ui/react-icons";
+import * as Button from "@/ui/html/button";
+import { Input } from "@/ui/html/input";
+
+export function DialogDemo() {
+  return (
+    <Dialog.Root>
+      <Dialog.Trigger asChild>
+        <Button.Solid color="blue">Edit profile</Button.Solid>
+      </Dialog.Trigger>
+      <Dialog.Portal>
+        <Dialog.Overlay />
+        <Dialog.Content>
+          <Dialog.Title>Edit profile</Dialog.Title>
+          <Dialog.Description>
+            Make changes to your profile here. Click save when you&apos;re done.
+          </Dialog.Description>
+          <fieldset className="mb-[15px] flex items-center gap-5">
+            <label htmlFor="name">Name</label>
+            <Input id="name" defaultValue="Diego Ramos" />
+          </fieldset>
+          <fieldset className="mb-[15px] flex items-center gap-5">
+            <label htmlFor="username">Username</label>
+            <Input id="username" defaultValue="@ramozdev" />
+          </fieldset>
+          <div className="mt-[25px] flex justify-end">
+            <Dialog.Close asChild>
+              <Button.Subtle color="green">Save changes</Button.Subtle>
+            </Dialog.Close>
+          </div>
+          <Dialog.Close asChild>
+            <Button.Subtle
+              color="neutral"
+              className="absolute right-[10px] top-[10px] rounded-full"
+              aria-label="Close"
+            >
+              <Cross2Icon />
+            </Button.Subtle>
+          </Dialog.Close>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
+  );
+}
+```
+
+## Usage
+
+Reusable UI extends the API of Radix UI to provide a more convenient API. This seciton contains the additions made to the API.
+
+### Content
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The content's color.                                                                                                                                                                                                                                                             |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'white-black'{:ts}`                                                                                                                                                                                                                                                             |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Description
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The description's color.                                                                                                                                                                                                                                                         |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Overlay
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The overlay's color.                                                                                                                                                                                                                                                             |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'white-black'{:ts}`                                                                                                                                                                                                                                                             |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Title
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The title's color.                                                                                                                                                                                                                                                               |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |

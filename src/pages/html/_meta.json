@@ -1,0 +1,11 @@
+{
+  "anchor": "Anchor",
+  "badge": "Badge",
+  "button": "Button",
+  "card": "Card",
+  "checkbox": "Checkbox",
+  "input": "Input",
+  "kbd": "Kbd",
+  "select": "Select",
+  "textarea": "Textarea"
+}

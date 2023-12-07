@@ -1,0 +1,95 @@
+---
+title: "Aspect Ratio"
+description: Displays content within a desired ratio.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { RadixDocs } from "@/components/radix-docs";
+
+# Aspect Ratio
+
+Displays content within a desired ratio.
+
+<RadixDocs slug="aspect-ratio" />
+
+![Aspect Ratio Preview](/pro/demos/radix/aspect-ratio.png)
+
+## Installation
+
+### Dependencies
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-aspect-ratio
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-aspect-ratio
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-aspect-ratio
+    ```
+
+  </Tab>
+</Tabs>
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="radix" defaultOpen>
+      <FileTree.Folder name="aspect-ratio" defaultOpen>
+        <FileTree.File name="root.ts" />
+        <FileTree.File name="variants.ts" />
+      </FileTree.Folder>
+      <FileTree.File name="aspect-ratio.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Import Aspect Ratio
+
+```tsx copy
+import * as AspectRatio from "@/ui/radix/aspect-ratio";
+```
+
+## Demo
+
+```tsx copy filename="@/demos/radix/aspect-ratio.tsx"
+import * as AspectRatio from "@/ui/radix/aspect-ratio";
+
+export function AspectRatioDemo() {
+  return (
+    <div className="w-[300px] overflow-hidden rounded-md">
+      <AspectRatio.Root ratio={16 / 9}>
+        <img
+          src="https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80"
+          alt="Photo by John Doe"
+        />
+      </AspectRatio.Root>
+    </div>
+  );
+}
+```
+
+## Usage
+
+Reusable UI extends the API of Radix UI to provide a more convenient API. This seciton contains the additions made to the API.
+
+### Root
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The root's color.                                                                                                                                                                                                                                                                |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |

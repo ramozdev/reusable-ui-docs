@@ -1,0 +1,273 @@
+---
+title: "Dropdown Menu"
+description: Displays a menu to the user—such as a set of actions or functions—triggered by a button.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { RadixDocs } from "@/components/radix-docs";
+
+# Dropdown Menu
+
+Displays a menu to the user—such as a set of actions or functions—triggered by a button.
+
+<RadixDocs slug="dropdown-menu" />
+
+![Dropdown Menu Preview](/pro/demos/radix/dropdown-menu.png)
+
+## Installation
+
+### Dependencies
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-dropdown-menu
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-dropdown-menu
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-dropdown-menu
+    ```
+
+  </Tab>
+</Tabs>
+
+### Icons
+
+The example uses Radix Icons, but you can use any icon library you want.
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-icons
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-icons
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-icons
+    ```
+
+  </Tab>
+</Tabs>
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="radix" defaultOpen>
+      <FileTree.Folder name="dropdown-menu" defaultOpen>
+        <FileTree.File name="arrow.ts" />
+        <FileTree.File name="content.ts" />
+        <FileTree.File name="item.ts" />
+        <FileTree.File name="right-slot.ts" />
+        <FileTree.File name="separator.ts" />
+        <FileTree.File name="sub-trigger.ts" />
+        <FileTree.File name="variants.ts" />
+      </FileTree.Folder>
+      <FileTree.File name="dropdown-menu.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Animations
+
+Animatios for this component are included in the `/ui/animations-plugins.ts` file.
+
+## Import Dropdown Menu
+
+```tsx copy
+import * as DropdownMenu from "@/ui/radix/dropdown-menu";
+```
+
+## Demo
+
+```tsx copy filename="@/demos/radix/dropdown-menu.tsx"
+import React from "react";
+import * as DropdownMenu from "@/ui/radix/dropdown-menu";
+import * as Button from "@/ui/html/button";
+import {
+  HamburgerMenuIcon,
+  DotFilledIcon,
+  CheckIcon,
+  ChevronRightIcon,
+} from "@radix-ui/react-icons";
+
+export function DropdownMenuDemo() {
+  const [bookmarksChecked, setBookmarksChecked] = React.useState(true);
+  const [urlsChecked, setUrlsChecked] = React.useState(false);
+  const [person, setPerson] = React.useState("pedro");
+
+  return (
+    <DropdownMenu.Root>
+      <DropdownMenu.Trigger asChild>
+        <Button.Solid color="blue" aria-label="Customise options">
+          <HamburgerMenuIcon />
+        </Button.Solid>
+      </DropdownMenu.Trigger>
+
+      <DropdownMenu.Portal>
+        <DropdownMenu.Content>
+          <DropdownMenu.Item>
+            New Tab <DropdownMenu.RightSlot>⌘+T</DropdownMenu.RightSlot>
+          </DropdownMenu.Item>
+          <DropdownMenu.Item>
+            New Window <DropdownMenu.RightSlot>⌘+N</DropdownMenu.RightSlot>
+          </DropdownMenu.Item>
+          <DropdownMenu.Item disabled>
+            New Private Window
+            <DropdownMenu.RightSlot>⇧+⌘+N</DropdownMenu.RightSlot>
+          </DropdownMenu.Item>
+          <DropdownMenu.Sub>
+            <DropdownMenu.SubTrigger>
+              More Tools
+              <DropdownMenu.RightSlot>
+                <ChevronRightIcon />
+              </DropdownMenu.RightSlot>
+            </DropdownMenu.SubTrigger>
+            <DropdownMenu.Portal>
+              <DropdownMenu.SubContent>
+                <DropdownMenu.Item>
+                  Save Page As…
+                  <DropdownMenu.RightSlot>⌘+S</DropdownMenu.RightSlot>
+                </DropdownMenu.Item>
+                <DropdownMenu.Item>Create Shortcut…</DropdownMenu.Item>
+                <DropdownMenu.Item>Name Window…</DropdownMenu.Item>
+                <DropdownMenu.Separator />
+                <DropdownMenu.Item>Developer Tools</DropdownMenu.Item>
+              </DropdownMenu.SubContent>
+            </DropdownMenu.Portal>
+          </DropdownMenu.Sub>
+
+          <DropdownMenu.Separator />
+
+          <DropdownMenu.CheckboxItem
+            checked={bookmarksChecked}
+            onCheckedChange={setBookmarksChecked}
+          >
+            <DropdownMenu.ItemIndicator>
+              <CheckIcon />
+            </DropdownMenu.ItemIndicator>
+            Show Bookmarks <DropdownMenu.RightSlot>⌘+B</DropdownMenu.RightSlot>
+          </DropdownMenu.CheckboxItem>
+          <DropdownMenu.CheckboxItem
+            checked={urlsChecked}
+            onCheckedChange={setUrlsChecked}
+          >
+            <DropdownMenu.ItemIndicator>
+              <CheckIcon />
+            </DropdownMenu.ItemIndicator>
+            Show Full URLs
+          </DropdownMenu.CheckboxItem>
+
+          <DropdownMenu.Separator />
+
+          <DropdownMenu.Label>People</DropdownMenu.Label>
+          <DropdownMenu.RadioGroup value={person} onValueChange={setPerson}>
+            <DropdownMenu.RadioItem value="pedro">
+              <DropdownMenu.ItemIndicator>
+                <DotFilledIcon />
+              </DropdownMenu.ItemIndicator>
+              Diego Ramos
+            </DropdownMenu.RadioItem>
+            <DropdownMenu.RadioItem value="colm">
+              <DropdownMenu.ItemIndicator>
+                <DotFilledIcon />
+              </DropdownMenu.ItemIndicator>
+              Juan Pérez
+            </DropdownMenu.RadioItem>
+          </DropdownMenu.RadioGroup>
+
+          <DropdownMenu.Arrow />
+        </DropdownMenu.Content>
+      </DropdownMenu.Portal>
+    </DropdownMenu.Root>
+  );
+}
+```
+
+## Usage
+
+Reusable UI extends the API of Radix UI to provide a more convenient API. This seciton contains the additions made to the API.
+
+### Arrow
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The arrow's color.                                                                                                                                                                                                                                                               |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Content
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The content's color.                                                                                                                                                                                                                                                             |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'white-black'{:ts}`                                                                                                                                                                                                                                                             |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Item
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The item's color.                                                                                                                                                                                                                                                                |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Label
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The label's color.                                                                                                                                                                                                                                                               |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### RightSlot
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The right slot's color.                                                                                                                                                                                                                                                          |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Separator
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The separator's color.                                                                                                                                                                                                                                                           |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### SubTrigger
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The sub trigger's color.                                                                                                                                                                                                                                                         |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |

@@ -1,0 +1,138 @@
+---
+title: "Checkbox"
+description: A control that allows the user to toggle between checked and not checked.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { RadixDocs } from "@/components/radix-docs";
+
+# Checkbox
+
+A control that allows the user to toggle between checked and not checked.
+
+<RadixDocs slug="checkbox" />
+
+![Checkbox Preview](/pro/demos/radix/checkbox.png)
+
+## Installation
+
+### Dependencies
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-checkbox
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-checkbox
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-checkbox
+    ```
+
+  </Tab>
+</Tabs>
+
+### Icons
+
+The example uses Radix Icons, but you can use any icon library you want.
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-icons
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-icons
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-icons
+    ```
+
+  </Tab>
+</Tabs>
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="radix" defaultOpen>
+      <FileTree.Folder name="checkbox" defaultOpen>
+        <FileTree.File name="indicator.ts" />
+        <FileTree.File name="root.ts" />
+        <FileTree.File name="variants.ts" />
+      </FileTree.Folder>
+      <FileTree.File name="checkbox.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Import Checkbox
+
+```tsx copy
+import * as Checkbox from "@/ui/radix/checkbox";
+```
+
+## Demo
+
+```tsx copy filename="@/demos/radix/checkbox.tsx"
+import * as Checkbox from "@/ui/radix/checkbox";
+import { CheckIcon } from "@radix-ui/react-icons";
+
+export function CheckboxDemo() {
+  return (
+    <form>
+      <div className="flex items-center">
+        <Checkbox.Root defaultChecked id="c1">
+          <Checkbox.Indicator>
+            <CheckIcon />
+          </Checkbox.Indicator>
+        </Checkbox.Root>
+        <label className="pl-[15px] text-[15px] leading-none" htmlFor="c1">
+          Accept terms and conditions.
+        </label>
+      </div>
+    </form>
+  );
+}
+```
+
+## Usage
+
+Reusable UI extends the API of Radix UI to provide a more convenient API. This seciton contains the additions made to the API.
+
+### Indicator
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The indicator's color.                                                                                                                                                                                                                                                           |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Root
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The root's color.                                                                                                                                                                                                                                                                |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'blue'{:ts}`                                                                                                                                                                                                                                                                    |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |

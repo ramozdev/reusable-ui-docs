@@ -1,0 +1,112 @@
+---
+title: "Radio Group"
+description: A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { RadixDocs } from "@/components/radix-docs";
+
+# Radio Group
+
+A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.
+
+<RadixDocs slug="radio-group" />
+
+![Radio Group Preview](/pro/demos/radix/radio-group.png)
+
+## Installation
+
+### Dependencies
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-radio-group
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-radio-group
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-radio-group
+    ```
+
+  </Tab>
+</Tabs>
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="radix" defaultOpen>
+      <FileTree.Folder name="radio-group" defaultOpen>
+        <FileTree.File name="indicator.ts" />
+        <FileTree.File name="item.ts" />
+        <FileTree.File name="variants.ts" />
+      </FileTree.Folder>
+      <FileTree.File name="radio-group.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Import Radio Group
+
+```tsx copy
+import * as RadioGroup from "@/ui/radix/radio-group";
+```
+
+## Demo
+
+```tsx copy filename="@/demos/radix/radio-group.tsx"
+import * as Label from "@/ui/radix/label";
+import * as RadioGroup from "@/ui/radix/radio-group";
+
+export function RadioGroupDemo() {
+  return (
+    <RadioGroup.Root defaultValue="comfortable">
+      <div className="flex items-center space-x-2">
+        <RadioGroup.Radio value="default" id="r1" />
+        <Label.Root htmlFor="r1">Default</Label.Root>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroup.Radio value="comfortable" id="r2" />
+        <Label.Root htmlFor="r2">Comfortable</Label.Root>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroup.Radio value="compact" id="r3" />
+        <Label.Root htmlFor="r3">Compact</Label.Root>
+      </div>
+    </RadioGroup.Root>
+  );
+}
+```
+
+## Usage
+
+Reusable UI extends the API of Radix UI to provide a more convenient API. This seciton contains the additions made to the API.
+
+### Indicator
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The indicator's color.                                                                                                                                                                                                                                                           |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Item
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The item's color.                                                                                                                                                                                                                                                                |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'blue'{:ts}`                                                                                                                                                                                                                                                                    |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |

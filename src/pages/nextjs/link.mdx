@@ -1,0 +1,311 @@
+---
+title: "Link"
+description: Client-side transitions between routes can be enabled via the Link component exported by next/link.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { NextjsDocs } from "@/components/nextjs-docs";
+
+# Link
+
+Client-side transitions between routes can be enabled via the `Link` component exported by `next/link`.
+
+<NextjsDocs slug="link" />
+
+## Underline
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import * as Link from "@/ui/nextjs/link";
+import { colors } from "@/lib/colors";
+
+export function Default() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Link.Underline
+          key={`link-solid-underline-${color}`}
+          href="#underline"
+          color={color}
+        >
+          {color}
+        </Link.Underline>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## Solid
+
+### default
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+
+```tsx copy
+import * as Link from "@/ui/nextjs/link";
+import { colors } from "@/lib/colors";
+
+export function Default() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Link.Solid
+          key={`link-solid-default-${color}`}
+          href="#default"
+          color={color}
+        >
+          {color}
+        </Link.Solid>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+### ghost
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import * as Link from "@/ui/nextjs/link";
+import { colors } from "@/lib/colors";
+
+export function Ghost() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Link.Solid
+          key={`link-solid-ghost-${color}`}
+          variant="ghost"
+          href="#ghost"
+          color={color}
+        >
+          {color}
+        </Link.Solid>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+### outline
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+
+```tsx copy
+import * as Link from "@/ui/nextjs/link";
+import { colors } from "@/lib/colors";
+
+export function Outline() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Link.Solid
+          key={`link-solid-outline-${color}`}
+          variant="outline"
+          href="#outline"
+          color={color}
+        >
+          {color}
+        </Link.Solid>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## Subtle
+
+### default
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import * as Link from "@/ui/nextjs/link";
+import { colors } from "@/lib/colors";
+
+export function Default() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Link.Subtle
+          key={`link-solid-default-${color}-1`}
+          href="#default-1"
+          color={color}
+        >
+          {color}
+        </Link.Subtle>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+### ghost
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+
+```tsx copy
+import * as Link from "@/ui/nextjs/link";
+import { colors } from "@/lib/colors";
+
+export function Ghost() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Link.Subtle
+          key={`link-solid-ghost-${color}-1`}
+          variant="ghost"
+          href="#ghost-1"
+          color={color}
+        >
+          {color}
+        </Link.Subtle>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+### outline
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import * as Link from "@/ui/nextjs/link";
+import { colors } from "@/lib/colors";
+
+export function Outline() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Link.Subtle
+          key={`link-solid-outline-${color}-1`}
+          variant="outline"
+          href="#outline-1"
+          color={color}
+        >
+          {color}
+        </Link.Subtle>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## Installation
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="link" defaultOpen>
+      <FileTree.File name="global-styles.ts" />
+      <FileTree.File name="index.ts" />
+      <FileTree.File name="solid.tsx" />
+      <FileTree.File name="subtle.tsx" />
+      <FileTree.File name="underline.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Usage
+
+### Solid
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The link's color.                                                                                                                                                                                                                                                                |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'blue'{:ts}`                                                                                                                                                                                                                                                                    |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+| Prop        | `size`                                                                                 |
+| ----------- | -------------------------------------------------------------------------------------- |
+| Description | The link's size.                                                                       |
+| type        | `'small' \| 'medium' \| 'large' \| 'icon-small' \| 'icon-medium' \| 'icon-large'{:ts}` |
+| default     | `'medium'{:ts}`                                                                        |
+| required    | `false{:ts}`                                                                           |
+
+| Prop        | `variant`                                |
+| ----------- | ---------------------------------------- |
+| Description | The link's style.                        |
+| type        | `'default' \| 'outline' \| 'ghost'{:ts}` |
+| default     | `'default'{:ts}`                         |
+| required    | `false{:ts}`                             |
+
+### Subtle
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The link's color.                                                                                                                                                                                                                                                                |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'blue'{:ts}`                                                                                                                                                                                                                                                                    |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+| Prop        | `size`                                                                                 |
+| ----------- | -------------------------------------------------------------------------------------- |
+| Description | The link's size.                                                                       |
+| type        | `'small' \| 'medium' \| 'large' \| 'icon-small' \| 'icon-medium' \| 'icon-large'{:ts}` |
+| default     | `'medium'{:ts}`                                                                        |
+| required    | `false{:ts}`                                                                           |
+
+| Prop        | `variant`                                |
+| ----------- | ---------------------------------------- |
+| Description | The link's style.                        |
+| type        | `'default' \| 'outline' \| 'ghost'{:ts}` |
+| default     | `'default'{:ts}`                         |
+| required    | `false{:ts}`                             |
+
+### Underline
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The link's color.                                                                                                                                                                                                                                                                |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'blue'{:ts}`                                                                                                                                                                                                                                                                    |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |

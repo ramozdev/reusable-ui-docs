@@ -1,0 +1,142 @@
+---
+title: "Kbd"
+description: A span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { MdnDocs } from "@/components/mdn-docs";
+
+# Kbd
+
+> A span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device.
+
+<MdnDocs slug="kbd" />
+
+## outline (default)
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import { Kbd } from "@/ui/html/kbd";
+import { colors } from "@/lib/colors";
+
+export function Outline() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color, index) => (
+        <p key={`kbd-outline-${color}-${index}`}>
+          <Kbd color={color}>⌘</Kbd>
+          <Kbd color={color}>{color}</Kbd>
+          <Kbd color={color}>R</Kbd>
+        </p>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## plane
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+
+```tsx copy
+import { Kbd } from "@/ui/html/kbd";
+import { colors } from "@/lib/colors";
+
+export function Plane() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color, index) => (
+        <p key={`kbd-plane-${color}-${index}`}>
+          <Kbd variant="plane" color={color}>
+            ⌘
+          </Kbd>
+          <Kbd variant="plane" color={color}>
+            {color}
+          </Kbd>
+          <Kbd variant="plane" color={color}>
+            R
+          </Kbd>
+        </p>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## skeuomorphic
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+
+```tsx copy
+import { Kbd } from "@/ui/html/kbd";
+import { colors } from "@/lib/colors";
+
+export function Skeuomorphic() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color, index) => (
+        <p key={`kbd-skeuomorphic-${color}-${index}`}>
+          <Kbd variant="skeuomorphic" color={color}>
+            ⌘
+          </Kbd>
+          <Kbd variant="skeuomorphic" color={color}>
+            {color}
+          </Kbd>
+          <Kbd variant="skeuomorphic" color={color}>
+            R
+          </Kbd>
+        </p>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## Installation
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="html" defaultOpen>
+      <FileTree.File name="kbd.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Usage
+
+### Kbd
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The kbd's color.                                                                                                                                                                                                                                                                 |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+| Prop        | `variant`                                     |
+| ----------- | --------------------------------------------- |
+| Description | The kbd's style.                              |
+| type        | `'outline' \| 'plane' \| 'skeuomorphic'{:ts}` |
+| default     | `'outline'{:ts}`                              |
+| required    | `false{:ts}`                                  |

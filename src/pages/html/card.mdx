@@ -1,0 +1,98 @@
+---
+title: "Card"
+description: Simple base component to contain and arrange UI blocks.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+
+# Card
+
+> Simple base component to contain and arrange UI blocks.
+
+## outline (default)
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import { Card } from "@/ui/html/card";
+import { colors } from "@/lib/colors";
+
+export function Outline() {
+  return (
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {colors.map((color, index) => (
+        <Card key={`card-outline-${color}-${index}`} color={color}>
+          {color}
+        </Card>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## plane
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import { Card } from "@/ui/html/card";
+import { colors } from "@/lib/colors";
+
+export function Plane() {
+  return (
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {colors.map((color, index) => (
+        <Card
+          key={`card-outline-${color}-${index}`}
+          variant="plane"
+          color={color}
+        >
+          {color}
+        </Card>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## Installation
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="html" defaultOpen>
+      <FileTree.File name="card.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Usage
+
+### Card
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The card's color.                                                                                                                                                                                                                                                                |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'white-black'{:ts}`                                                                                                                                                                                                                                                             |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+| Prop        | `variant`                   |
+| ----------- | --------------------------- |
+| Description | The card's style.           |
+| type        | `'outline' \| 'plane'{:ts}` |
+| default     | `'outline'{:ts}`            |
+| required    | `false{:ts}`                |

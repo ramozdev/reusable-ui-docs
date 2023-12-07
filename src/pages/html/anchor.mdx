@@ -1,0 +1,313 @@
+---
+title: "Anchor"
+description: Creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { MdnDocs } from "@/components/mdn-docs";
+
+# Anchor
+
+> Creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.
+
+<MdnDocs slug="a" />
+
+## Underline
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import * as Anchor from "@/ui/html/anchor";
+import { colors } from "@/lib/colors";
+
+export function Default() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Anchor.Underline
+          key={`anchor-solid-underline-${color}`}
+          href="#underline"
+          color={color}
+        >
+          {color}
+        </Anchor.Underline>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## Solid
+
+### default
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+
+```tsx copy
+import * as Anchor from "@/ui/html/anchor";
+import { colors } from "@/lib/colors";
+
+export function Default() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Anchor.Solid
+          key={`anchor-solid-default-${color}`}
+          href="#default"
+          color={color}
+        >
+          {color}
+        </Anchor.Solid>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+### ghost
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import * as Anchor from "@/ui/html/anchor";
+import { colors } from "@/lib/colors";
+
+export function Ghost() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Anchor.Solid
+          key={`anchor-solid-ghost-${color}`}
+          variant="ghost"
+          href="#ghost"
+          color={color}
+        >
+          {color}
+        </Anchor.Solid>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+### outline
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+
+```tsx copy
+import * as Anchor from "@/ui/html/anchor";
+import { colors } from "@/lib/colors";
+
+export function Outline() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Anchor.Solid
+          key={`anchor-solid-outline-${color}`}
+          variant="outline"
+          href="#outline"
+          color={color}
+        >
+          {color}
+        </Anchor.Solid>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## Subtle
+
+### default
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import * as Anchor from "@/ui/html/anchor";
+import { colors } from "@/lib/colors";
+
+export function Default() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Anchor.Subtle
+          key={`anchor-solid-default-${color}-1`}
+          href="#default-1"
+          color={color}
+        >
+          {color}
+        </Anchor.Subtle>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+### ghost
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+
+```tsx copy
+import * as Anchor from "@/ui/html/anchor";
+import { colors } from "@/lib/colors";
+
+export function Ghost() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Anchor.Subtle
+          key={`anchor-solid-ghost-${color}-1`}
+          variant="ghost"
+          href="#ghost-1"
+          color={color}
+        >
+          {color}
+        </Anchor.Subtle>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+### outline
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import * as Anchor from "@/ui/html/anchor";
+import { colors } from "@/lib/colors";
+
+export function Outline() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Anchor.Subtle
+          key={`anchor-solid-outline-${color}-1`}
+          variant="outline"
+          href="#outline-1"
+          color={color}
+        >
+          {color}
+        </Anchor.Subtle>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## Installation
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="html" defaultOpen>
+      <FileTree.Folder name="anchor" defaultOpen>
+        <FileTree.File name="global-styles.ts" />
+        <FileTree.File name="index.ts" />
+        <FileTree.File name="solid.tsx" />
+        <FileTree.File name="subtle.tsx" />
+        <FileTree.File name="underline.tsx" />
+      </FileTree.Folder>
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Usage
+
+### Solid
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The anchor's color.                                                                                                                                                                                                                                                              |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'blue'{:ts}`                                                                                                                                                                                                                                                                    |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+| Prop        | `size`                                                                                 |
+| ----------- | -------------------------------------------------------------------------------------- |
+| Description | The anchor's size.                                                                     |
+| type        | `'small' \| 'medium' \| 'large' \| 'icon-small' \| 'icon-medium' \| 'icon-large'{:ts}` |
+| default     | `'medium'{:ts}`                                                                        |
+| required    | `false{:ts}`                                                                           |
+
+| Prop        | `variant`                                |
+| ----------- | ---------------------------------------- |
+| Description | The anchor's style.                      |
+| type        | `'default' \| 'outline' \| 'ghost'{:ts}` |
+| default     | `'default'{:ts}`                         |
+| required    | `false{:ts}`                             |
+
+### Subtle
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The anchor's color.                                                                                                                                                                                                                                                              |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'blue'{:ts}`                                                                                                                                                                                                                                                                    |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+| Prop        | `size`                                                                                 |
+| ----------- | -------------------------------------------------------------------------------------- |
+| Description | The anchor's size.                                                                     |
+| type        | `'small' \| 'medium' \| 'large' \| 'icon-small' \| 'icon-medium' \| 'icon-large'{:ts}` |
+| default     | `'medium'{:ts}`                                                                        |
+| required    | `false{:ts}`                                                                           |
+
+| Prop        | `variant`                                |
+| ----------- | ---------------------------------------- |
+| Description | The anchor's style.                      |
+| type        | `'default' \| 'outline' \| 'ghost'{:ts}` |
+| default     | `'default'{:ts}`                         |
+| required    | `false{:ts}`                             |
+
+### Underline
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The anchor's color.                                                                                                                                                                                                                                                              |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'blue'{:ts}`                                                                                                                                                                                                                                                                    |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |

@@ -1,0 +1,305 @@
+---
+title: "Navigation Menu"
+description: A collection of links for navigating websites.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { RadixDocs } from "@/components/radix-docs";
+
+# Navigation Menu
+
+A collection of links for navigating websites.
+
+<RadixDocs slug="navigation-menu" />
+
+![Navigation Menu Preview](/pro/demos/radix/navigation-menu.png)
+
+## Installation
+
+### Dependencies
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-navigation-menu
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-navigation-menu
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-navigation-menu
+    ```
+
+  </Tab>
+</Tabs>
+
+### Icons
+
+The example uses Radix Icons, but you can use any icon library you want.
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-icons
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-icons
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-icons
+    ```
+
+  </Tab>
+</Tabs>
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="radix" defaultOpen>
+      <FileTree.Folder name="navigation-menu" defaultOpen>
+        <FileTree.File name="arrow.ts" />
+        <FileTree.File name="caret.ts" />
+        <FileTree.File name="content.ts" />
+        <FileTree.File name="list-item.ts" />
+        <FileTree.File name="list.ts" />
+        <FileTree.File name="trigger.ts" />
+        <FileTree.File name="variants.ts" />
+        <FileTree.File name="viewport.ts" />
+      </FileTree.Folder>
+      <FileTree.File name="navigation-menu.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Animations
+
+Animatios for this component are included in the `/ui/animations-plugins.ts` file.
+
+## Import Navigation Menu
+
+```tsx copy
+import * as NavigationMenu from "@/ui/radix/navigation-menu";
+```
+
+## Demo
+
+```tsx copy filename="@/demos/radix/navigation-menu.tsx"
+import * as NavigationMenu from "@/ui/radix/navigation-menu";
+import { CaretDownIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
+
+const links: { title: string; href: string; children: React.ReactNode }[] = [
+  {
+    title: "Introduction",
+    href: "/docs/primitives/overview/introduction",
+    children: "Build high-quality, accessible design systems and web apps.",
+  },
+  {
+    title: "Getting started",
+    href: "/docs/primitives/overview/getting-started",
+    children:
+      "A quick tutorial to get you up and running with Radix Primitives.",
+  },
+  {
+    title: "Styling",
+    href: "/docs/primitives/overview/styling",
+    children: "Unstyled and compatible with any styling solution.",
+  },
+  {
+    title: "Animation",
+    href: "/docs/primitives/overview/animation",
+    children: "Use CSS keyframes or any animation library of your choice.",
+  },
+  {
+    title: "Accessibility",
+    href: "/docs/primitives/overview/accessibility",
+    children: "Tested in a range of browsers and assistive technologies.",
+  },
+  {
+    title: "Releases",
+    href: "/docs/primitives/overview/releases",
+    children: "Radix Primitives releases and their changelogs.",
+  },
+];
+
+export function NavigationMenuDemo() {
+  return (
+    <NavigationMenu.Root>
+      <NavigationMenu.List>
+        <NavigationMenu.Item>
+          <NavigationMenu.Trigger>
+            Learn <CaretDownIcon aria-hidden />
+          </NavigationMenu.Trigger>
+          <NavigationMenu.Content>
+            <ul className="one m-0 grid list-none gap-x-[10px] p-[22px] sm:w-[500px] sm:grid-cols-[0.75fr_1fr]">
+              <li className="row-span-4 grid">
+                <NavigationMenu.ListItemNextjs href="/" variant="spotlight">
+                  <svg
+                    aria-hidden
+                    width="38"
+                    height="38"
+                    viewBox="0 0 25 25"
+                    fill="white"
+                  >
+                    <path d="M12 25C7.58173 25 4 21.4183 4 17C4 12.5817 7.58173 9 12 9V25Z"></path>
+                    <path d="M12 0H4V8H12V0Z"></path>
+                    <path d="M17 8C19.2091 8 21 6.20914 21 4C21 1.79086 19.2091 0 17 0C14.7909 0 13 1.79086 13 4C13 6.20914 14.7909 8 17 8Z"></path>
+                  </svg>
+                  <div className="mb-[7px] mt-4 text-[18px] font-medium leading-[1.2] text-white">
+                    Radix Primitives
+                  </div>
+                  <p className="text-mauve4 text-[14px] leading-[1.3]">
+                    Unstyled, accessible components for React.
+                  </p>
+                </NavigationMenu.ListItemNextjs>
+              </li>
+              <li>
+                <NavigationMenu.Link asChild>
+                  <Link href="/"></Link>
+                </NavigationMenu.Link>
+              </li>
+
+              <NavigationMenu.ListItem
+                href="https://stitches.dev/"
+                title="Stitches"
+              >
+                CSS-in-JS with best-in-class developer experience.
+              </NavigationMenu.ListItem>
+              <NavigationMenu.ListItem href="/colors" title="Colors">
+                Beautiful, thought-out palettes with auto dark mode.
+              </NavigationMenu.ListItem>
+              <NavigationMenu.ListItem
+                href="https://icons.radix-ui.com/"
+                title="Icons"
+              >
+                A crisp set of 15x15 icons, balanced and consistent.
+              </NavigationMenu.ListItem>
+            </ul>
+          </NavigationMenu.Content>
+        </NavigationMenu.Item>
+
+        <NavigationMenu.Item>
+          <NavigationMenu.Trigger>
+            Overview <CaretDownIcon aria-hidden />
+          </NavigationMenu.Trigger>
+          <NavigationMenu.Content>
+            <ul className="m-0 grid list-none gap-x-[10px] p-[22px] sm:w-[600px] sm:grid-flow-col sm:grid-rows-3">
+              {links.map(({ children, href, title }) => (
+                <li key={href}>
+                  <NavigationMenu.ListItemNextjs
+                    {...{ children, href, title }}
+                  />
+                </li>
+              ))}
+            </ul>
+          </NavigationMenu.Content>
+        </NavigationMenu.Item>
+
+        <NavigationMenu.Item>
+          <NavigationMenu.Link
+            href="https://twitter.com/ramozdev"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Twitter
+          </NavigationMenu.Link>
+        </NavigationMenu.Item>
+
+        <NavigationMenu.Indicator>
+          <NavigationMenu.Arrow />
+        </NavigationMenu.Indicator>
+      </NavigationMenu.List>
+
+      <div className="perspective-[2000px] absolute left-0 top-full flex w-full justify-center">
+        <NavigationMenu.Viewport />
+      </div>
+    </NavigationMenu.Root>
+  );
+}
+```
+
+## Usage
+
+Reusable UI extends the API of Radix UI to provide a more convenient API. This seciton contains the additions made to the API.
+
+### Arrow
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The arrow's color.                                                                                                                                                                                                                                                               |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Caret
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The caret's color.                                                                                                                                                                                                                                                               |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Content
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The content's color.                                                                                                                                                                                                                                                             |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'white-black'{:ts}`                                                                                                                                                                                                                                                             |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### ListItem
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The list item's color.                                                                                                                                                                                                                                                           |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'white-black'{:ts}`                                                                                                                                                                                                                                                             |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### List
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The list's color.                                                                                                                                                                                                                                                                |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'white-black'{:ts}`                                                                                                                                                                                                                                                             |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Trigger
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The trigger's color.                                                                                                                                                                                                                                                             |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Viewport
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The viewport's color.                                                                                                                                                                                                                                                            |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'white-black'{:ts}`                                                                                                                                                                                                                                                             |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |

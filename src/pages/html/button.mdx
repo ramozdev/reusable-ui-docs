@@ -1,0 +1,260 @@
+---
+title: "Button"
+description: A Button is used to trigger an action as well as navigation.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { MdnDocs } from "@/components/mdn-docs";
+
+# Button
+
+> A Button is used to trigger an action as well as navigation.
+
+<MdnDocs slug="button" />
+
+## Solid
+
+### default
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import * as Button from "@/ui/html/button";
+import { colors } from "@/lib/colors";
+
+export function Default() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Button.Solid key={`button-solid-default-${color}`} color={color}>
+          {color}
+        </Button.Solid>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+### ghost
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import * as Button from "@/ui/html/button";
+import { colors } from "@/lib/colors";
+
+export function Ghost() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Button.Solid
+          key={`button-solid-ghost-${color}`}
+          variant="ghost"
+          color={color}
+        >
+          {color}
+        </Button.Solid>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+### outline
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import * as Button from "@/ui/html/button";
+import { colors } from "@/lib/colors";
+
+export function Outline() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Button.Solid
+          key={`button-solid-outline-${color}`}
+          variant="outline"
+          color={color}
+        >
+          {color}
+        </Button.Solid>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## Subtle
+
+### default
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import * as Button from "@/ui/html/button";
+import { colors } from "@/lib/colors";
+
+export function Default() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Button.Subtle key={`button-subtle-default-${color}`} color={color}>
+          {color}
+        </Button.Subtle>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+### ghost
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import * as Button from "@/ui/html/button";
+import { colors } from "@/lib/colors";
+
+export function Ghost() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Button.Subtle
+          key={`button-subtle-ghost-${color}`}
+          variant="ghost"
+          color={color}
+        >
+          {color}
+        </Button.Subtle>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+### outline
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import * as Button from "@/ui/html/button";
+import { colors } from "@/lib/colors";
+
+export function Outline() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color) => (
+        <Button.Subtle
+          key={`button-subtle-outline-${color}`}
+          variant="outline"
+          color={color}
+        >
+          {color}
+        </Button.Subtle>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## Installation
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="html" defaultOpen>
+      <FileTree.Folder name="button" defaultOpen>
+        <FileTree.File name="global-styles.ts" />
+        <FileTree.File name="index.ts" />
+        <FileTree.File name="solid.tsx" />
+        <FileTree.File name="subtle.tsx" />
+      </FileTree.Folder>
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Usage
+
+### Solid
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The button's color.                                                                                                                                                                                                                                                              |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'blue'{:ts}`                                                                                                                                                                                                                                                                    |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+| Prop        | `size`                                                                                 |
+| ----------- | -------------------------------------------------------------------------------------- |
+| Description | The button's size.                                                                     |
+| type        | `'small' \| 'medium' \| 'large' \| 'icon-small' \| 'icon-medium' \| 'icon-large'{:ts}` |
+| default     | `'medium'{:ts}`                                                                        |
+| required    | `false{:ts}`                                                                           |
+
+| Prop        | `variant`                                |
+| ----------- | ---------------------------------------- |
+| Description | The button's style.                      |
+| type        | `'default' \| 'outline' \| 'ghost'{:ts}` |
+| default     | `'default'{:ts}`                         |
+| required    | `false{:ts}`                             |
+
+### Subtle
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The button's color.                                                                                                                                                                                                                                                              |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'blue'{:ts}`                                                                                                                                                                                                                                                                    |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+| Prop        | `size`                                                                                 |
+| ----------- | -------------------------------------------------------------------------------------- |
+| Description | The button's size.                                                                     |
+| type        | `'small' \| 'medium' \| 'large' \| 'icon-small' \| 'icon-medium' \| 'icon-large'{:ts}` |
+| default     | `'medium'{:ts}`                                                                        |
+| required    | `false{:ts}`                                                                           |
+
+| Prop        | `variant`                                |
+| ----------- | ---------------------------------------- |
+| Description | The button's style.                      |
+| type        | `'default' \| 'outline' \| 'ghost'{:ts}` |
+| default     | `'default'{:ts}`                         |
+| required    | `false{:ts}`                             |

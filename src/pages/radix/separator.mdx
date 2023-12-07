@@ -1,0 +1,109 @@
+---
+title: "Separator"
+description: Visually or semantically separates content.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { RadixDocs } from "@/components/radix-docs";
+
+# Separator
+
+Visually or semantically separates content.
+
+<RadixDocs slug="separator" />
+
+![Separator Preview](/pro/demos/radix/separator.png)
+
+## Installation
+
+### Dependencies
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-separator
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-separator
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-separator
+    ```
+
+  </Tab>
+</Tabs>
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="radix" defaultOpen>
+      <FileTree.Folder name="separator" defaultOpen>
+        <FileTree.File name="root.ts" />
+        <FileTree.File name="variants.ts" />
+      </FileTree.Folder>
+      <FileTree.File name="separator.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Import Separator
+
+```tsx copy
+import * as Separator from "@/ui/radix/separator";
+```
+
+## Demo
+
+```tsx copy filename="@/demos/radix/separator.tsx"
+import * as Separator from "@/ui/radix/separator";
+
+export function SeparatorDemo() {
+  return (
+    <div className="mx-[15px] w-full max-w-[300px]">
+      <div className="text-[15px] font-medium leading-5 text-black dark:text-white">
+        Radix Primitives
+      </div>
+      <div className="text-[15px] leading-5 text-black dark:text-white">
+        An open-source UI component library.
+      </div>
+      <Separator.Root />
+      <div className="flex h-5 items-center">
+        <div className="text-[15px] leading-5 text-black dark:text-white">
+          Blog
+        </div>
+        <Separator.Root decorative orientation="vertical" />
+        <div className="text-[15px] leading-5 text-black dark:text-white">
+          Docs
+        </div>
+        <Separator.Root decorative orientation="vertical" />
+        <div className="text-[15px] leading-5 text-black dark:text-white">
+          Source
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+## Usage
+
+Reusable UI extends the API of Radix UI to provide a more convenient API. This seciton contains the additions made to the API.
+
+### Root
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The root's color.                                                                                                                                                                                                                                                                |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |

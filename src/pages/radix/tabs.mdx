@@ -1,0 +1,192 @@
+---
+title: "Tabs"
+description: A set of layered sections of content—known as tab panels—that are displayed one at a time.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { RadixDocs } from "@/components/radix-docs";
+
+# Tabs
+
+A set of layered sections of content—known as tab panels—that are displayed one at a time.
+
+<RadixDocs slug="tabs" />
+
+![Tabs Preview](/pro/demos/radix/tabs.png)
+
+## Installation
+
+### Dependencies
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-tabs
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-tabs
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-tabs
+    ```
+
+  </Tab>
+</Tabs>
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="radix" defaultOpen>
+      <FileTree.Folder name="tabs" defaultOpen>
+        <FileTree.File name="content.ts" />
+        <FileTree.File name="root.ts" />
+        <FileTree.File name="trigger.ts" />
+        <FileTree.File name="variants.ts" />
+      </FileTree.Folder>
+      <FileTree.File name="tabs.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Import Tabs
+
+```tsx copy
+import * as Tabs from "@/ui/radix/tabs";
+```
+
+## Demo
+
+```tsx copy filename="@/demos/radix/tabs.tsx"
+import * as Tabs from "@/ui/radix/tabs";
+import { Input } from "@/ui/html/input";
+import * as Button from "@/ui/html/button";
+
+export function TabsDemo() {
+  return (
+    <Tabs.Root defaultValue="tab1">
+      <Tabs.List
+        className="border-mauve6 flex shrink-0 border-b"
+        aria-label="Manage your account"
+      >
+        <Tabs.Trigger value="tab1">Account</Tabs.Trigger>
+        <Tabs.Trigger value="tab2">Password</Tabs.Trigger>
+      </Tabs.List>
+      <Tabs.Content value="tab1">
+        <p className="text-mauve11 mb-5 text-[15px] leading-normal">
+          Make changes to your account here. Click save when you&apos;re done.
+        </p>
+        <fieldset className="mb-[15px] flex w-full flex-col justify-start">
+          <label
+            className="mb-2.5 block text-[13px] leading-none"
+            htmlFor="name"
+          >
+            Name
+          </label>
+          <Input id="name" defaultValue="Diego Ramos" />
+        </fieldset>
+        <fieldset className="mb-[15px] flex w-full flex-col justify-start">
+          <label
+            className="mb-2.5 block text-[13px] leading-none"
+            htmlFor="username"
+          >
+            Username
+          </label>
+          <Input id="username" defaultValue="@ramozdev" />
+        </fieldset>
+        <div className="mt-5 flex justify-end">
+          <Button.Subtle color="green" variant="outline">
+            Save changes
+          </Button.Subtle>
+        </div>
+      </Tabs.Content>
+      <Tabs.Content value="tab2">
+        <p className="text-mauve11 mb-5 text-[15px] leading-normal">
+          Change your password here. After saving, you&apos;ll be logged out.
+        </p>
+        <fieldset className="mb-[15px] flex w-full flex-col justify-start">
+          <label
+            className="mb-2.5 block text-[13px] leading-none"
+            htmlFor="currentPassword"
+          >
+            Current password
+          </label>
+          <Input id="currentPassword" type="password" />
+        </fieldset>
+        <fieldset className="mb-[15px] flex w-full flex-col justify-start">
+          <label
+            className="mb-2.5 block text-[13px] leading-none"
+            htmlFor="newPassword"
+          >
+            New password
+          </label>
+          <Input id="newPassword" type="password" />
+        </fieldset>
+        <fieldset className="mb-[15px] flex w-full flex-col justify-start">
+          <label
+            className="mb-2.5 block text-[13px] leading-none"
+            htmlFor="confirmPassword"
+          >
+            Confirm password
+          </label>
+          <Input id="confirmPassword" type="password" />
+        </fieldset>
+        <div className="mt-5 flex justify-end">
+          <Button.Subtle color="green" variant="outline">
+            Change password
+          </Button.Subtle>
+        </div>
+      </Tabs.Content>
+    </Tabs.Root>
+  );
+}
+```
+
+## Usage
+
+Reusable UI extends the API of Radix UI to provide a more convenient API. This seciton contains the additions made to the API.
+
+### Content
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The content's color.                                                                                                                                                                                                                                                             |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'white-black'{:ts}`                                                                                                                                                                                                                                                             |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### List
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The list's color.                                                                                                                                                                                                                                                                |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Root
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The root's color.                                                                                                                                                                                                                                                                |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Trigger
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The trigger's color.                                                                                                                                                                                                                                                             |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'white-black'{:ts}`                                                                                                                                                                                                                                                             |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |

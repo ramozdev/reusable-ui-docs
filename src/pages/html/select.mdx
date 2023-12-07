@@ -1,0 +1,123 @@
+---
+title: "Select"
+description: A control that provides a menu of options.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { MdnDocs } from "@/components/mdn-docs";
+
+# Select
+
+> A control that provides a menu of options.
+
+<MdnDocs slug="select" />
+
+## outline (default)
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import { Select } from "@/ui/html/select";
+import { colors } from "@/lib/colors";
+
+export function Outline() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color, index) => (
+        <div key={`select-outline-${color}-${index}`}>
+          <label
+            className="sr-only"
+            htmlFor={`select-outline-${color}-${index}`}
+          >
+            Lorem Ipsum
+          </label>
+          <Select
+            color={color}
+            name={`select-outline-${color}-${index}`}
+            id={`select-outline-${color}-${index}`}
+          >
+            <option value="single">Single ({color})</option>
+            <option value="married">Married ({color})</option>
+            <option value="widowed">Widowed ({color})</option>
+          </Select>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## plane
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+
+```tsx copy
+import { Select } from "@/ui/html/select";
+import { colors } from "@/lib/colors";
+
+export function Plane() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      {colors.map((color, index) => (
+        <div key={`select-plane-${color}-${index}`}>
+          <label className="sr-only" htmlFor={`select-plane-${color}-${index}`}>
+            Lorem Ipsum
+          </label>
+          <Select
+            color={color}
+            variant="plane"
+            name={`select-plane-${color}-${index}`}
+            id={`select-plane-${color}-${index}`}
+          >
+            <option value="single">Single ({color})</option>
+            <option value="married">Married ({color})</option>
+            <option value="widowed">Widowed ({color})</option>
+          </Select>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## Installation
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="html" defaultOpen>
+      <FileTree.File name="select.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Usage
+
+### Select
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The select's color.                                                                                                                                                                                                                                                              |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+| Prop        | `variant`                   |
+| ----------- | --------------------------- |
+| Description | The select's style.         |
+| type        | `'outline' \| 'plane'{:ts}` |
+| default     | `'outline'{:ts}`            |
+| required    | `false{:ts}`                |

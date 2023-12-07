@@ -1,0 +1,131 @@
+---
+title: "Collapsible"
+description: An interactive component which expands/collapses a panel.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { RadixDocs } from "@/components/radix-docs";
+
+# Collapsible
+
+An interactive component which expands/collapses a panel.
+
+<RadixDocs slug="collapsible" />
+
+![Collapsible Preview](/pro/demos/radix/collapsible.png)
+
+## Installation
+
+### Dependencies
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-collapsible
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-collapsible
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-collapsible
+    ```
+
+  </Tab>
+</Tabs>
+
+### Icons
+
+The example uses Radix Icons, but you can use any icon library you want.
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-icons
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-icons
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-icons
+    ```
+
+  </Tab>
+</Tabs>
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="radix" defaultOpen>
+      <FileTree.File name="collapsible.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Demo
+
+```tsx copy filename="@/demos/radix/collapsible.tsx"
+import React from "react";
+import * as Collapsible from "@/ui/radix/collapsible";
+import { RowSpacingIcon, Cross2Icon } from "@radix-ui/react-icons";
+import * as Button from "@/ui/html/button";
+
+export function CollapsibleDemo() {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <Collapsible.Root open={open} onOpenChange={setOpen}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <span className="text-[15px] leading-[25px]">
+          @peduarte starred 3 repositories
+        </span>
+        <Collapsible.Trigger asChild>
+          <Button.Solid
+            color="neutral"
+            variant="outline"
+            className="inline-flex h-[25px] w-[25px] items-center justify-center rounded-full p-0"
+          >
+            {open ? <Cross2Icon /> : <RowSpacingIcon />}
+          </Button.Solid>
+        </Collapsible.Trigger>
+      </div>
+
+      <div className="my-[10px] rounded-md bg-white p-[10px] dark:bg-black">
+        <span className="text-[15px] leading-[25px]">@radix-ui/primitives</span>
+      </div>
+
+      <Collapsible.Content>
+        <div className="my-[10px] rounded-md bg-white p-[10px] dark:bg-black">
+          <span className="text-[15px] leading-[25px]">@radix-ui/colors</span>
+        </div>
+        <div className="my-[10px] rounded-md bg-white p-[10px] dark:bg-black">
+          <span className="text-[15px] leading-[25px]">@stitches/react</span>
+        </div>
+      </Collapsible.Content>
+    </Collapsible.Root>
+  );
+}
+```

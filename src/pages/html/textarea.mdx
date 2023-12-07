@@ -1,0 +1,120 @@
+---
+title: "Textarea"
+description: Multi-line plain-text editing control.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { MdnDocs } from "@/components/mdn-docs";
+
+# Textarea
+
+> Multi-line plain-text editing control.
+
+<MdnDocs slug="textarea" />
+
+## outline (default)
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import { Textarea } from "@/ui/html/textarea";
+import { colors } from "@/lib/colors";
+
+export function Outline() {
+  return (
+    <div className="grid gap-4 lg:grid-cols-2">
+      {colors.map((color, index) => (
+        <div key={`textarea-outline-${color}-${index}`}>
+          <label
+            className="sr-only"
+            htmlFor={`textarea-outline-${color}-${index}`}
+          >
+            Lorem Ipsum
+          </label>
+          <Textarea
+            color={color}
+            placeholder={`Lorem ipsum dolor sit amet. (${color})`}
+            name={`textarea-outline-${color}-${index}`}
+            id={`textarea-outline-${color}-${index}`}
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## plane
+
+<Tabs items={['Demo', 'Code']}>
+  <Tab>
+  </Tab>
+  <Tab>
+   
+```tsx copy
+import { Textarea } from "@/ui/html/textarea";
+import { colors } from "@/lib/colors";
+
+export function Plane() {
+  return (
+    <div className="grid gap-4 lg:grid-cols-2">
+      {colors.map((color, index) => (
+        <div key={`textarea-plane-${color}-${index}`}>
+          <label
+            className="sr-only"
+            htmlFor={`textarea-plane-${color}-${index}`}
+          >
+            Lorem Ipsum
+          </label>
+          <Textarea
+            color={color}
+            variant="plane"
+            placeholder={`Lorem ipsum dolor sit amet. (${color})`}
+            name={`textarea-plane-${color}-${index}`}
+            id={`textarea-plane-${color}-${index}`}
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+## Installation
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="html" defaultOpen>
+      <FileTree.File name="textarea.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Usage
+
+### Textarea
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The textarea's color.                                                                                                                                                                                                                                                            |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+| Prop        | `variant`                   |
+| ----------- | --------------------------- |
+| Description | The textarea's style.       |
+| type        | `'outline' \| 'plane'{:ts}` |
+| default     | `'outline'{:ts}`            |
+| required    | `false{:ts}`                |

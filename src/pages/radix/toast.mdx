@@ -1,0 +1,141 @@
+---
+title: "Toast"
+description: A succinct message that is displayed temporarily.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { RadixDocs } from "@/components/radix-docs";
+
+# Toast
+
+A succinct message that is displayed temporarily.
+
+<RadixDocs slug="toast" />
+
+![Toast Preview](/pro/demos/radix/toast.png)
+
+## Installation
+
+### Dependencies
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-toast
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-toast
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-toast
+    ```
+
+  </Tab>
+</Tabs>
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="radix" defaultOpen>
+      <FileTree.Folder name="toast" defaultOpen>
+        <FileTree.File name="root.ts" />
+        <FileTree.File name="variants.ts" />
+      </FileTree.Folder>
+      <FileTree.File name="toast.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Animations
+
+Animatios for this component are included in the `/ui/animations-plugins.ts` file.
+
+## Import Toast
+
+```tsx copy
+import * as Toast from "@/ui/radix/toast";
+```
+
+## Demo
+
+```tsx copy filename="@/demos/radix/toast.tsx"
+import * as React from "react";
+import * as Button from "@/ui/html/button";
+import * as Toast from "@/ui/radix/toast";
+
+export function ToastDemo() {
+  const [open, setOpen] = React.useState(false);
+  const eventDateRef = React.useRef(new Date());
+  const timerRef = React.useRef(0);
+
+  React.useEffect(() => {
+    return () => clearTimeout(timerRef.current);
+  }, []);
+
+  return (
+    <Toast.Provider swipeDirection="right">
+      <Button.Solid
+        onClick={() => {
+          setOpen(false);
+          window.clearTimeout(timerRef.current);
+          timerRef.current = window.setTimeout(() => {
+            eventDateRef.current = oneWeekAway();
+            setOpen(true);
+          }, 100);
+        }}
+      >
+        Add to calendar
+      </Button.Solid>
+
+      <Toast.Root open={open} onOpenChange={setOpen}>
+        <Toast.Title>Scheduled: Catch up</Toast.Title>
+        <Toast.Description asChild>
+          <time dateTime={eventDateRef.current.toISOString()}>
+            {prettyDate(eventDateRef.current)}
+          </time>
+        </Toast.Description>
+        <Toast.Action asChild altText="Goto schedule to undo">
+          <Button.Solid>Undo</Button.Solid>
+        </Toast.Action>
+      </Toast.Root>
+      <Toast.Viewport />
+    </Toast.Provider>
+  );
+}
+
+function oneWeekAway() {
+  const now = new Date();
+  const inOneWeek = now.setDate(now.getDate() + 7);
+  return new Date(inOneWeek);
+}
+
+function prettyDate(date: Date) {
+  return new Intl.DateTimeFormat("en-US", {
+    dateStyle: "full",
+    timeStyle: "short",
+  }).format(date);
+}
+```
+
+## Usage
+
+Reusable UI extends the API of Radix UI to provide a more convenient API. This seciton contains the additions made to the API.
+
+### Root
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The root's color.                                                                                                                                                                                                                                                                |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |

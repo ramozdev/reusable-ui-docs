@@ -1,0 +1,119 @@
+---
+title: "Form"
+description: Collect information from your users using validation rules.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { RadixDocs } from "@/components/radix-docs";
+
+# Form
+
+Collect information from your users using validation rules.
+
+<RadixDocs slug="form" />
+
+![Form Preview](/pro/demos/radix/form.png)
+
+## Installation
+
+### Dependencies
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-form
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-form
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-form
+    ```
+
+  </Tab>
+</Tabs>
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="radix" defaultOpen>
+      <FileTree.Folder name="form" defaultOpen>
+        <FileTree.File name="label.ts" />
+        <FileTree.File name="variants.ts" />
+      </FileTree.Folder>
+      <FileTree.File name="form.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Import Form
+
+```tsx copy
+import * as Form from "@/ui/radix/form";
+```
+
+## Demo
+
+```tsx copy filename="@/demos/radix/form.tsx"
+import * as Button from "@/ui/html/button";
+import * as Form from "@/ui/radix/form";
+import { Input } from "@/ui/html/input";
+import { Textarea } from "@/ui/html/textarea";
+
+export function FormDemo() {
+  return (
+    <Form.Root onSubmit={(e) => e.preventDefault()}>
+      <Form.Field name="email">
+        <div className="flex items-baseline justify-between">
+          <Form.Label required>Email</Form.Label>
+          <Form.Message match="valueMissing">
+            Please enter your email
+          </Form.Message>
+          <Form.Message match="typeMismatch">
+            Please provide a valid email
+          </Form.Message>
+        </div>
+        <Form.Control asChild>
+          <Input type="email" required />
+        </Form.Control>
+      </Form.Field>
+      <Form.Field name="question">
+        <Form.Label required>Question</Form.Label>
+        <Form.Control asChild>
+          <Textarea required />
+        </Form.Control>
+        <Form.Message className="mt-2" match="valueMissing">
+          Please enter a question. Lorem, ipsum dolor sit amet consectetur
+          adipisicing elit. Exercitationem, numquam?
+        </Form.Message>
+      </Form.Field>
+      <Form.Submit asChild>
+        <Button.Solid className="w-full">Post question</Button.Solid>
+      </Form.Submit>
+    </Form.Root>
+  );
+}
+```
+
+## Usage
+
+Reusable UI extends the API of Radix UI to provide a more convenient API. This seciton contains the additions made to the API.
+
+### Label
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The label's color.                                                                                                                                                                                                                                                               |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |

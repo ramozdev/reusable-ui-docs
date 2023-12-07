@@ -1,0 +1,193 @@
+---
+title: "Popover"
+description: Displays rich content in a portal, triggered by a button.
+---
+
+import { FileTree, Tab, Tabs } from "nextra-theme-docs";
+import { RadixDocs } from "@/components/radix-docs";
+
+# Popover
+
+Displays rich content in a portal, triggered by a button.
+
+<RadixDocs slug="popover" />
+
+![Popover Preview](/pro/demos/radix/popover.png)
+
+## Installation
+
+### Dependencies
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-popover
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-popover
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-popover
+    ```
+
+  </Tab>
+</Tabs>
+
+### Icons
+
+The example uses Radix Icons, but you can use any icon library you want.
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    
+    ```bash copy
+    pnpm install @radix-ui/react-icons
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    npm install @radix-ui/react-icons
+    ```
+
+  </Tab>
+  <Tab>
+    
+    ```bash copy
+    yarn add @radix-ui/react-icons
+    ```
+
+  </Tab>
+</Tabs>
+
+### File Tree
+
+<FileTree>
+  <FileTree.Folder name="ui" defaultOpen>
+    <FileTree.Folder name="radix" defaultOpen>
+      <FileTree.Folder name="popover" defaultOpen>
+        <FileTree.File name="arrow.ts" />
+        <FileTree.File name="content.ts" />
+        <FileTree.File name="variants.ts" />
+      </FileTree.Folder>
+      <FileTree.File name="popover.tsx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Animations
+
+Animatios for this component are included in the `/ui/animations-plugins.ts` file.
+
+## Import Popover
+
+```tsx copy
+import * as Popover from "@/ui/radix/popover";
+```
+
+## Demo
+
+```tsx copy filename="@/demos/radix/popover.tsx"
+import * as Popover from "@/ui/radix/popover";
+import { MixerHorizontalIcon, Cross2Icon } from "@radix-ui/react-icons";
+
+export function PopoverDemo() {
+  return (
+    <Popover.Root>
+      <Popover.Trigger asChild>
+        <button aria-label="Update dimensions">
+          <MixerHorizontalIcon />
+        </button>
+      </Popover.Trigger>
+      <Popover.Portal>
+        <Popover.Content>
+          <div className="flex flex-col gap-2.5">
+            <p className="mb-2.5 text-[15px] font-medium leading-[19px]">
+              Dimensions
+            </p>
+            <fieldset className="flex items-center gap-5">
+              <label className="w-[75px] text-[13px]" htmlFor="width">
+                Width
+              </label>
+              <input
+                className="inline-flex h-[25px] w-full flex-1 items-center justify-center rounded px-2.5 text-[13px] leading-none outline-none"
+                id="width"
+                defaultValue="100%"
+              />
+            </fieldset>
+            <fieldset className="flex items-center gap-5">
+              <label className="w-[75px] text-[13px]" htmlFor="maxWidth">
+                Max. width
+              </label>
+              <input
+                className="inline-flex h-[25px] w-full flex-1 items-center justify-center rounded px-2.5 text-[13px] leading-none outline-none"
+                id="maxWidth"
+                defaultValue="300px"
+              />
+            </fieldset>
+            <fieldset className="flex items-center gap-5">
+              <label className="w-[75px] text-[13px]" htmlFor="height">
+                Height
+              </label>
+              <input
+                className="inline-flex h-[25px] w-full flex-1 items-center justify-center rounded px-2.5 text-[13px] leading-none outline-none"
+                id="height"
+                defaultValue="25px"
+              />
+            </fieldset>
+            <fieldset className="flex items-center gap-5">
+              <label className="w-[75px] text-[13px]" htmlFor="maxHeight">
+                Max. height
+              </label>
+              <input
+                className="inline-flex h-[25px] w-full flex-1 items-center justify-center rounded px-2.5 text-[13px] leading-none outline-none"
+                id="maxHeight"
+                defaultValue="none"
+              />
+            </fieldset>
+          </div>
+          <Popover.Close
+            className="absolute right-[5px] top-[5px] inline-flex h-[25px] w-[25px] cursor-default items-center justify-center rounded-full outline-none"
+            aria-label="Close"
+          >
+            <Cross2Icon />
+          </Popover.Close>
+          <Popover.Arrow className="fill-white" />
+        </Popover.Content>
+      </Popover.Portal>
+    </Popover.Root>
+  );
+}
+```
+
+## Usage
+
+Reusable UI extends the API of Radix UI to provide a more convenient API. This seciton contains the additions made to the API.
+
+### Arrow
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The arrow's color.                                                                                                                                                                                                                                                               |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
+
+### Content
+
+| Prop        | `color`                                                                                                                                                                                                                                                                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Description | The content's color.                                                                                                                                                                                                                                                             |
+| type        | `'brand' \| 'slate' \| 'gray' \| 'zinc' \| 'neutral' \| 'stone' \| 'red' \| 'orange' \| 'amber' \| 'yellow' \| 'lime' \| 'green' \| 'emerald' \| 'teal' \| 'cyan' \| 'sky' \| 'blue' \| 'indigo' \| 'violet' \| 'purple' \| 'fuchsia' \| 'pink' \| 'rose' \| 'white-black'{:ts}` |
+| default     | `'neutral'{:ts}`                                                                                                                                                                                                                                                                 |
+| required    | `false{:ts}`                                                                                                                                                                                                                                                                     |
